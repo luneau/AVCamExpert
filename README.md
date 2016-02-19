@@ -4,7 +4,7 @@ Simple iOS app and AppleWatch to display Camera live feed using AVFoundation , O
 * Display iPhone or iPad live feed from back or front camera
 * Camera format selection ( Size , frame rate)
 * Preview with CALayer (prefered live view)
-* Preview with OpenGL (use full for processing frames)
+* Preview with OpenGL (usefull processing frames)
 * Preview on AppleWatch (just for testing)
 
 
