@@ -1,0 +1,698 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		000E89411C62A27800EF782A /* SwitchCameraIcon44.png in Resources */ = {isa = PBXBuildFile; fileRef = 000E893F1C62A27800EF782A /* SwitchCameraIcon44.png */; };
+		000E89421C62A27800EF782A /* SwitchCameraIcon44@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 000E89401C62A27800EF782A /* SwitchCameraIcon44@2x.png */; };
+		000E89441C6355DB00EF782A /* black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 000E89431C6355DB00EF782A /* black@2x.png */; };
+		0023DD621C677E730095367A /* OutlinedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0023DD611C677E730095367A /* OutlinedLabel.m */; };
+		002E6B991C6A8E0500FEC7E0 /* GLPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 002E6B981C6A8E0500FEC7E0 /* GLPreviewView.m */; };
+		002E6B9C1C6A8E8A00FEC7E0 /* RippleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 002E6B9B1C6A8E8A00FEC7E0 /* RippleModel.m */; };
+		002E6B9F1C6BB6F400FEC7E0 /* ShaderYUV.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 002E6B9D1C6BB6F400FEC7E0 /* ShaderYUV.fsh */; };
+		002E6BA01C6BB6F400FEC7E0 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 002E6B9E1C6BB6F400FEC7E0 /* Shader.vsh */; };
+		004116E41C76355000963193 /* WatchRemotePreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 004116E31C76355000963193 /* WatchRemotePreview.m */; };
+		004117541C77705600963193 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 004117521C77705600963193 /* Interface.storyboard */; };
+		004117561C77705600963193 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 004117551C77705600963193 /* Assets.xcassets */; };
+		0041175D1C77705600963193 /* AVCamExpert WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0041175C1C77705600963193 /* AVCamExpert WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		004117641C77705600963193 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004117631C77705600963193 /* InterfaceController.swift */; };
+		004117661C77705600963193 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004117651C77705600963193 /* ExtensionDelegate.swift */; };
+		004117681C77705600963193 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004117671C77705600963193 /* NotificationController.swift */; };
+		0041176A1C77705600963193 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 004117691C77705600963193 /* Assets.xcassets */; };
+		0041176E1C77705600963193 /* AVCamExpert WatchKit.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 004117501C77705500963193 /* AVCamExpert WatchKit.app */; };
+		004117761C7770E000963193 /* SwitchCameraIcon44@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 000E89401C62A27800EF782A /* SwitchCameraIcon44@2x.png */; };
+		009460061C0DC08800408BE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 009460051C0DC08800408BE9 /* main.m */; };
+		009460091C0DC08800408BE9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 009460081C0DC08800408BE9 /* AppDelegate.m */; };
+		0094600C1C0DC08800408BE9 /* AVCamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0094600B1C0DC08800408BE9 /* AVCamViewController.m */; };
+		0094600F1C0DC08800408BE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0094600D1C0DC08800408BE9 /* Main.storyboard */; };
+		009460111C0DC08800408BE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 009460101C0DC08800408BE9 /* Assets.xcassets */; };
+		009460141C0DC08800408BE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 009460121C0DC08800408BE9 /* LaunchScreen.storyboard */; };
+		0094601D1C0E127400408BE9 /* OutlinedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0094601C1C0E127400408BE9 /* OutlinedButton.m */; };
+		009460201C0EF5DB00408BE9 /* AVPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0094601F1C0EF5DB00408BE9 /* AVPreviewView.m */; };
+		009460231C0EF68800408BE9 /* CALayerPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 009460221C0EF68800408BE9 /* CALayerPreviewView.m */; };
+		009460261C0F190700408BE9 /* StreamSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 009460251C0F190700408BE9 /* StreamSource.m */; };
+		00C4E1751C7250C600B0B1B5 /* video.png in Resources */ = {isa = PBXBuildFile; fileRef = 00C4E1741C7250C600B0B1B5 /* video.png */; };
+		00C4E1E41C72679A00B0B1B5 /* JPSVolumeButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C4E1E31C72679A00B0B1B5 /* JPSVolumeButtonHandler.m */; };
+		00F9BF931C75C1B40048DD62 /* AVGenericController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F9BF921C75C1B40048DD62 /* AVGenericController.m */; };
+		00F9BFC11C761CC50048DD62 /* ShaderBGRA.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 00F9BFC01C761CC50048DD62 /* ShaderBGRA.fsh */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0041175E1C77705600963193 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00945FF91C0DC08800408BE9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0041175B1C77705600963193;
+			remoteInfo = "AVCamExpert WatchKit Extension";
+		};
+		0041176C1C77705600963193 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00945FF91C0DC08800408BE9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0041174F1C77705500963193;
+			remoteInfo = "AVCamExpert WatchKit";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		004117721C77705600963193 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0041175D1C77705600963193 /* AVCamExpert WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00F9BFBF1C761BBB0048DD62 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				0041176E1C77705600963193 /* AVCamExpert WatchKit.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		000E893F1C62A27800EF782A /* SwitchCameraIcon44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SwitchCameraIcon44.png; sourceTree = "<group>"; };
+		000E89401C62A27800EF782A /* SwitchCameraIcon44@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SwitchCameraIcon44@2x.png"; sourceTree = "<group>"; };
+		000E89431C6355DB00EF782A /* black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "black@2x.png"; sourceTree = "<group>"; };
+		0023DD601C677E730095367A /* OutlinedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutlinedLabel.h; sourceTree = "<group>"; };
+		0023DD611C677E730095367A /* OutlinedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutlinedLabel.m; sourceTree = "<group>"; };
+		002E6B971C6A8E0500FEC7E0 /* GLPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLPreviewView.h; sourceTree = "<group>"; };
+		002E6B981C6A8E0500FEC7E0 /* GLPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLPreviewView.m; sourceTree = "<group>"; };
+		002E6B9A1C6A8E8A00FEC7E0 /* RippleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RippleModel.h; sourceTree = "<group>"; };
+		002E6B9B1C6A8E8A00FEC7E0 /* RippleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RippleModel.m; sourceTree = "<group>"; };
+		002E6B9D1C6BB6F400FEC7E0 /* ShaderYUV.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ShaderYUV.fsh; sourceTree = "<group>"; };
+		002E6B9E1C6BB6F400FEC7E0 /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
+		004116E21C76355000963193 /* WatchRemotePreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchRemotePreview.h; sourceTree = "<group>"; };
+		004116E31C76355000963193 /* WatchRemotePreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchRemotePreview.m; sourceTree = "<group>"; };
+		004117501C77705500963193 /* AVCamExpert WatchKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AVCamExpert WatchKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		004117531C77705600963193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		004117551C77705600963193 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		004117571C77705600963193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0041175C1C77705600963193 /* AVCamExpert WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "AVCamExpert WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		004117621C77705600963193 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		004117631C77705600963193 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		004117651C77705600963193 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		004117671C77705600963193 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		004117691C77705600963193 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0041176B1C77705600963193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		009460011C0DC08800408BE9 /* AVCamExpert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AVCamExpert.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		009460051C0DC08800408BE9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		009460071C0DC08800408BE9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		009460081C0DC08800408BE9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0094600A1C0DC08800408BE9 /* AVCamViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVCamViewController.h; sourceTree = "<group>"; };
+		0094600B1C0DC08800408BE9 /* AVCamViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVCamViewController.m; sourceTree = "<group>"; };
+		0094600E1C0DC08800408BE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		009460101C0DC08800408BE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		009460131C0DC08800408BE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		009460151C0DC08800408BE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0094601B1C0E127400408BE9 /* OutlinedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutlinedButton.h; sourceTree = "<group>"; };
+		0094601C1C0E127400408BE9 /* OutlinedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutlinedButton.m; sourceTree = "<group>"; };
+		0094601E1C0EF5DB00408BE9 /* AVPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVPreviewView.h; sourceTree = "<group>"; };
+		0094601F1C0EF5DB00408BE9 /* AVPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVPreviewView.m; sourceTree = "<group>"; };
+		009460211C0EF68800408BE9 /* CALayerPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CALayerPreviewView.h; sourceTree = "<group>"; };
+		009460221C0EF68800408BE9 /* CALayerPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CALayerPreviewView.m; sourceTree = "<group>"; };
+		009460241C0F190700408BE9 /* StreamSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamSource.h; sourceTree = "<group>"; };
+		009460251C0F190700408BE9 /* StreamSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamSource.m; sourceTree = "<group>"; };
+		00C4E1741C7250C600B0B1B5 /* video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = video.png; sourceTree = "<group>"; };
+		00C4E1E21C72679A00B0B1B5 /* JPSVolumeButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPSVolumeButtonHandler.h; sourceTree = "<group>"; };
+		00C4E1E31C72679A00B0B1B5 /* JPSVolumeButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPSVolumeButtonHandler.m; sourceTree = "<group>"; };
+		00F9BF911C75C1B40048DD62 /* AVGenericController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVGenericController.h; sourceTree = "<group>"; };
+		00F9BF921C75C1B40048DD62 /* AVGenericController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVGenericController.m; sourceTree = "<group>"; };
+		00F9BFC01C761CC50048DD62 /* ShaderBGRA.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ShaderBGRA.fsh; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		004117591C77705600963193 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00945FFE1C0DC08800408BE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		000E893E1C62A27800EF782A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				000E89431C6355DB00EF782A /* black@2x.png */,
+				000E893F1C62A27800EF782A /* SwitchCameraIcon44.png */,
+				000E89401C62A27800EF782A /* SwitchCameraIcon44@2x.png */,
+				00C4E1741C7250C600B0B1B5 /* video.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		004117511C77705600963193 /* AVCamExpert WatchKit */ = {
+			isa = PBXGroup;
+			children = (
+				004117521C77705600963193 /* Interface.storyboard */,
+				004117551C77705600963193 /* Assets.xcassets */,
+				004117571C77705600963193 /* Info.plist */,
+			);
+			path = "AVCamExpert WatchKit";
+			sourceTree = "<group>";
+		};
+		004117601C77705600963193 /* AVCamExpert WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				004117631C77705600963193 /* InterfaceController.swift */,
+				004117651C77705600963193 /* ExtensionDelegate.swift */,
+				004117671C77705600963193 /* NotificationController.swift */,
+				004117691C77705600963193 /* Assets.xcassets */,
+				0041176B1C77705600963193 /* Info.plist */,
+				004117611C77705600963193 /* Supporting Files */,
+			);
+			path = "AVCamExpert WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		004117611C77705600963193 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				004117621C77705600963193 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		00945FF81C0DC08800408BE9 = {
+			isa = PBXGroup;
+			children = (
+				00C93AAF1C68A3ED00976DAB /* ThirdParties */,
+				000E893E1C62A27800EF782A /* Resources */,
+				009460031C0DC08800408BE9 /* AVCamExpert */,
+				004117511C77705600963193 /* AVCamExpert WatchKit */,
+				004117601C77705600963193 /* AVCamExpert WatchKit Extension */,
+				009460021C0DC08800408BE9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		009460021C0DC08800408BE9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				009460011C0DC08800408BE9 /* AVCamExpert.app */,
+				004117501C77705500963193 /* AVCamExpert WatchKit.app */,
+				0041175C1C77705600963193 /* AVCamExpert WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		009460031C0DC08800408BE9 /* AVCamExpert */ = {
+			isa = PBXGroup;
+			children = (
+				00F9BFC01C761CC50048DD62 /* ShaderBGRA.fsh */,
+				002E6B9D1C6BB6F400FEC7E0 /* ShaderYUV.fsh */,
+				002E6B9E1C6BB6F400FEC7E0 /* Shader.vsh */,
+				002E6B9A1C6A8E8A00FEC7E0 /* RippleModel.h */,
+				002E6B9B1C6A8E8A00FEC7E0 /* RippleModel.m */,
+				0094601B1C0E127400408BE9 /* OutlinedButton.h */,
+				0094601C1C0E127400408BE9 /* OutlinedButton.m */,
+				0023DD601C677E730095367A /* OutlinedLabel.h */,
+				0023DD611C677E730095367A /* OutlinedLabel.m */,
+				0094601E1C0EF5DB00408BE9 /* AVPreviewView.h */,
+				0094601F1C0EF5DB00408BE9 /* AVPreviewView.m */,
+				002E6B971C6A8E0500FEC7E0 /* GLPreviewView.h */,
+				002E6B981C6A8E0500FEC7E0 /* GLPreviewView.m */,
+				009460211C0EF68800408BE9 /* CALayerPreviewView.h */,
+				009460221C0EF68800408BE9 /* CALayerPreviewView.m */,
+				009460071C0DC08800408BE9 /* AppDelegate.h */,
+				009460081C0DC08800408BE9 /* AppDelegate.m */,
+				009460241C0F190700408BE9 /* StreamSource.h */,
+				009460251C0F190700408BE9 /* StreamSource.m */,
+				0094600A1C0DC08800408BE9 /* AVCamViewController.h */,
+				0094600B1C0DC08800408BE9 /* AVCamViewController.m */,
+				00F9BF911C75C1B40048DD62 /* AVGenericController.h */,
+				00F9BF921C75C1B40048DD62 /* AVGenericController.m */,
+				004116E21C76355000963193 /* WatchRemotePreview.h */,
+				004116E31C76355000963193 /* WatchRemotePreview.m */,
+				0094600D1C0DC08800408BE9 /* Main.storyboard */,
+				009460101C0DC08800408BE9 /* Assets.xcassets */,
+				009460121C0DC08800408BE9 /* LaunchScreen.storyboard */,
+				009460151C0DC08800408BE9 /* Info.plist */,
+				009460041C0DC08800408BE9 /* Supporting Files */,
+			);
+			path = AVCamExpert;
+			sourceTree = "<group>";
+		};
+		009460041C0DC08800408BE9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				009460051C0DC08800408BE9 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		00C4E1E11C72679A00B0B1B5 /* JPSVolumeButtonHandler */ = {
+			isa = PBXGroup;
+			children = (
+				00C4E1E21C72679A00B0B1B5 /* JPSVolumeButtonHandler.h */,
+				00C4E1E31C72679A00B0B1B5 /* JPSVolumeButtonHandler.m */,
+			);
+			path = JPSVolumeButtonHandler;
+			sourceTree = "<group>";
+		};
+		00C93AAF1C68A3ED00976DAB /* ThirdParties */ = {
+			isa = PBXGroup;
+			children = (
+				00C4E1E11C72679A00B0B1B5 /* JPSVolumeButtonHandler */,
+			);
+			path = ThirdParties;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0041174F1C77705500963193 /* AVCamExpert WatchKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 004117731C77705600963193 /* Build configuration list for PBXNativeTarget "AVCamExpert WatchKit" */;
+			buildPhases = (
+				0041174E1C77705500963193 /* Resources */,
+				004117721C77705600963193 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0041175F1C77705600963193 /* PBXTargetDependency */,
+			);
+			name = "AVCamExpert WatchKit";
+			productName = "AVCamExpert WatchKit";
+			productReference = 004117501C77705500963193 /* AVCamExpert WatchKit.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		0041175B1C77705600963193 /* AVCamExpert WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0041176F1C77705600963193 /* Build configuration list for PBXNativeTarget "AVCamExpert WatchKit Extension" */;
+			buildPhases = (
+				004117581C77705600963193 /* Sources */,
+				004117591C77705600963193 /* Frameworks */,
+				0041175A1C77705600963193 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AVCamExpert WatchKit Extension";
+			productName = "AVCamExpert WatchKit Extension";
+			productReference = 0041175C1C77705600963193 /* AVCamExpert WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+		009460001C0DC08800408BE9 /* AVCamExpert */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 009460181C0DC08800408BE9 /* Build configuration list for PBXNativeTarget "AVCamExpert" */;
+			buildPhases = (
+				00945FFD1C0DC08800408BE9 /* Sources */,
+				00945FFE1C0DC08800408BE9 /* Frameworks */,
+				00945FFF1C0DC08800408BE9 /* Resources */,
+				00F9BFBF1C761BBB0048DD62 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0041176D1C77705600963193 /* PBXTargetDependency */,
+			);
+			name = AVCamExpert;
+			productName = AVCamExpert;
+			productReference = 009460011C0DC08800408BE9 /* AVCamExpert.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		00945FF91C0DC08800408BE9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = Matchpix;
+				TargetAttributes = {
+					0041174F1C77705500963193 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					0041175B1C77705600963193 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					009460001C0DC08800408BE9 = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 00945FFC1C0DC08800408BE9 /* Build configuration list for PBXProject "AVCamExpert" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 00945FF81C0DC08800408BE9;
+			productRefGroup = 009460021C0DC08800408BE9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				009460001C0DC08800408BE9 /* AVCamExpert */,
+				0041174F1C77705500963193 /* AVCamExpert WatchKit */,
+				0041175B1C77705600963193 /* AVCamExpert WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0041174E1C77705500963193 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				004117761C7770E000963193 /* SwitchCameraIcon44@2x.png in Resources */,
+				004117561C77705600963193 /* Assets.xcassets in Resources */,
+				004117541C77705600963193 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0041175A1C77705600963193 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0041176A1C77705600963193 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00945FFF1C0DC08800408BE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				002E6BA01C6BB6F400FEC7E0 /* Shader.vsh in Resources */,
+				00C4E1751C7250C600B0B1B5 /* video.png in Resources */,
+				009460141C0DC08800408BE9 /* LaunchScreen.storyboard in Resources */,
+				000E89411C62A27800EF782A /* SwitchCameraIcon44.png in Resources */,
+				009460111C0DC08800408BE9 /* Assets.xcassets in Resources */,
+				000E89421C62A27800EF782A /* SwitchCameraIcon44@2x.png in Resources */,
+				00F9BFC11C761CC50048DD62 /* ShaderBGRA.fsh in Resources */,
+				000E89441C6355DB00EF782A /* black@2x.png in Resources */,
+				002E6B9F1C6BB6F400FEC7E0 /* ShaderYUV.fsh in Resources */,
+				0094600F1C0DC08800408BE9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		004117581C77705600963193 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				004117681C77705600963193 /* NotificationController.swift in Sources */,
+				004117661C77705600963193 /* ExtensionDelegate.swift in Sources */,
+				004117641C77705600963193 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00945FFD1C0DC08800408BE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0023DD621C677E730095367A /* OutlinedLabel.m in Sources */,
+				00F9BF931C75C1B40048DD62 /* AVGenericController.m in Sources */,
+				002E6B9C1C6A8E8A00FEC7E0 /* RippleModel.m in Sources */,
+				0094600C1C0DC08800408BE9 /* AVCamViewController.m in Sources */,
+				009460261C0F190700408BE9 /* StreamSource.m in Sources */,
+				009460231C0EF68800408BE9 /* CALayerPreviewView.m in Sources */,
+				009460201C0EF5DB00408BE9 /* AVPreviewView.m in Sources */,
+				004116E41C76355000963193 /* WatchRemotePreview.m in Sources */,
+				00C4E1E41C72679A00B0B1B5 /* JPSVolumeButtonHandler.m in Sources */,
+				002E6B991C6A8E0500FEC7E0 /* GLPreviewView.m in Sources */,
+				009460091C0DC08800408BE9 /* AppDelegate.m in Sources */,
+				0094601D1C0E127400408BE9 /* OutlinedButton.m in Sources */,
+				009460061C0DC08800408BE9 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0041175F1C77705600963193 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0041175B1C77705600963193 /* AVCamExpert WatchKit Extension */;
+			targetProxy = 0041175E1C77705600963193 /* PBXContainerItemProxy */;
+		};
+		0041176D1C77705600963193 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0041174F1C77705500963193 /* AVCamExpert WatchKit */;
+			targetProxy = 0041176C1C77705600963193 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		004117521C77705600963193 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				004117531C77705600963193 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+		0094600D1C0DC08800408BE9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0094600E1C0DC08800408BE9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		009460121C0DC08800408BE9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				009460131C0DC08800408BE9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		004117701C77705600963193 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "AVCamExpert WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.matchpix.AVCamExpert.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Debug;
+		};
+		004117711C77705600963193 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "AVCamExpert WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.matchpix.AVCamExpert.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Release;
+		};
+		004117741C77705600963193 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = AVCamExpert_WatchKit_Extension;
+				INFOPLIST_FILE = "AVCamExpert WatchKit/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.matchpix.AVCamExpert.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Debug;
+		};
+		004117751C77705600963193 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = AVCamExpert_WatchKit_Extension;
+				INFOPLIST_FILE = "AVCamExpert WatchKit/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.matchpix.AVCamExpert.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Release;
+		};
+		009460161C0DC08800408BE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		009460171C0DC08800408BE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		009460191C0DC08800408BE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AVCamExpert/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.matchpix.AVCamExpert;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0094601A1C0DC08800408BE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AVCamExpert/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.matchpix.AVCamExpert;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0041176F1C77705600963193 /* Build configuration list for PBXNativeTarget "AVCamExpert WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				004117701C77705600963193 /* Debug */,
+				004117711C77705600963193 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		004117731C77705600963193 /* Build configuration list for PBXNativeTarget "AVCamExpert WatchKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				004117741C77705600963193 /* Debug */,
+				004117751C77705600963193 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		00945FFC1C0DC08800408BE9 /* Build configuration list for PBXProject "AVCamExpert" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				009460161C0DC08800408BE9 /* Debug */,
+				009460171C0DC08800408BE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		009460181C0DC08800408BE9 /* Build configuration list for PBXNativeTarget "AVCamExpert" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				009460191C0DC08800408BE9 /* Debug */,
+				0094601A1C0DC08800408BE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 00945FF91C0DC08800408BE9 /* Project object */;
+}

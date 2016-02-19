@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9515"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="AVCamExpert_WatchKit_Extension">
+                    <items>
+                        <group width="1" height="1" alignment="left" layout="vertical" id="hBC-9m-xkh">
+                            <items>
+                                <label width="1" height="1" alignment="left" hidden="YES" text="Start AVCampExpert on your iPhone" textAlignment="center" numberOfLines="0" id="erm-Vt-0ML"/>
+                                <group width="1" height="1" alignment="left" layout="vertical" id="jTX-IT-gc3">
+                                    <items>
+                                        <imageView width="1" height="0.66000000000000003" alignment="left" image="SwitchCameraIcon44.png" contentMode="scaleAspectFill" id="COe-vP-Yhr"/>
+                                        <group width="1" alignment="center" verticalAlignment="center" id="Je2-5F-RxL">
+                                            <items>
+                                                <button alignment="left" verticalAlignment="center" backgroundImage="SwitchCameraIcon44.png" id="wmU-cA-EHZ">
+                                                    <connections>
+                                                        <action selector="switchAction" destination="AgC-eL-Hgc" id="FRn-6G-aKn"/>
+                                                    </connections>
+                                                </button>
+                                                <button width="0.59999999999999998" alignment="right" verticalAlignment="center" title="Grab" id="h94-1B-hHU">
+                                                    <connections>
+                                                        <action selector="grabAction" destination="AgC-eL-Hgc" id="Btr-07-8jf"/>
+                                                    </connections>
+                                                </button>
+                                            </items>
+                                        </group>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="imageView" destination="COe-vP-Yhr" id="ITo-go-Jnr"/>
+                        <outlet property="mainGroup" destination="jTX-IT-gc3" id="1xL-hN-IRV"/>
+                        <outlet property="startLabel" destination="erm-Vt-0ML" id="Prq-tv-5Hp"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="374"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="AVCamExpert_WatchKit_Extension"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+    </scenes>
+</document>
