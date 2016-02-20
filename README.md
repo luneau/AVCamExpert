@@ -8,5 +8,5 @@ Simple iOS app and AppleWatch to display Camera live feed using AVFoundation , O
 * Preview on AppleWatch (just for testing)
 
 
-I use this as starting point for image processing and computer vision projects. 
+I use this sample as starting point for image processing and computer vision projects. 
 Feel free to use it.
