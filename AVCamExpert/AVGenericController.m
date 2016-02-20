@@ -16,6 +16,7 @@
         controller.currentCameraIndex = 0;
         controller.captureSession = [[AVCaptureSession alloc] init];
         controller.captureDevices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
+        if (controller.captureDevices.count == 0) return controller;
         controller.videoDevice = [controller.captureDevices objectAtIndex:0];
         controller.sessionQueue = dispatch_queue_create( "session queue", DISPATCH_QUEUE_SERIAL );
         controller.setupResult = AVCamManualSetupResultSuccess;
