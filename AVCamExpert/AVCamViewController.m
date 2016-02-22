@@ -72,6 +72,7 @@ static void * ExposureTargetOffsetContext = &ExposureTargetOffsetContext;
     _rippleSwitch.hidden = YES;
     _rippleLabel.hidden = YES;
     EAGLContext* context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+
     [_glPreview setupGLWithContext:context];
     
     // openGL screen synchronization with displayLink

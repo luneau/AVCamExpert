@@ -10,6 +10,7 @@
 @import AVFoundation;
 @import GLKit;
 
+#define YUV_BUFFER 1
 typedef void (^AVGenericControllerBlock)(NSError* error);
 #import "StreamSource.h"
 #import "AVPreviewView.h"

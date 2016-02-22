@@ -120,9 +120,11 @@
             controller.captureOutput = [[AVCaptureVideoDataOutput alloc] init];
             controller.captureOutput.alwaysDiscardsLateVideoFrames = YES;
             
-            // Set the video output to store frame in BGRA (It is supposed to be faster)
-            //NSDictionary* videoSettings = @{(NSString*)kCVPixelBufferPixelFormatTypeKey:[NSNumber numberWithUnsignedInt:kCVPixelFormatType_32BGRA]};
+#ifdef YUV_BUFFER
             NSDictionary* videoSettings = @{(NSString*)kCVPixelBufferPixelFormatTypeKey:[NSNumber numberWithUnsignedInt:kCVPixelFormatType_420YpCbCr8BiPlanarFullRange]};
+#else
+            NSDictionary* videoSettings = @{(NSString*)kCVPixelBufferPixelFormatTypeKey:[NSNumber numberWithUnsignedInt:kCVPixelFormatType_32BGRA]};
+#endif
             //AVCaptureConnection *conn = [captureOutput connectionWithMediaType:AVMediaTypeVideo];
             
             [controller.captureOutput setVideoSettings:videoSettings];

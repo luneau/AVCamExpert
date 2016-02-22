@@ -12,6 +12,7 @@
 
 @interface GLPreviewView : GLKView <GLKViewDelegate,AVCaptureVideoDataOutputSampleBufferDelegate>
 @property (nonatomic) BOOL simulation;
+@property (nonatomic) BOOL isYUV;
 - (void)setupGLWithContext:(EAGLContext*)context;
 - (void)tearDownGL;
 - (void)cleanUpTextures;

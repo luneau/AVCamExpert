@@ -8,6 +8,7 @@
 
 #import "GLPreviewView.h"
 #import "RippleModel.h"
+#include <OpenGLES/ES2/glext.h>
 // Uniform index.
 enum
 {
@@ -16,6 +17,7 @@ enum
     NUM_UNIFORMS
 };
 GLint uniforms[NUM_UNIFORMS];
+GLint uniformsBGRA[1];
 
 // Attribute index.
 enum
@@ -28,7 +30,8 @@ enum
 {
     size_t count;
     
-    GLuint _program;
+    GLuint _programYUV;
+    GLuint _programBGRA;
     
     GLuint _positionVBO;
     GLuint _texcoordVBO;
@@ -101,12 +104,17 @@ enum
     _meshFactor = 8;
     self.delegate = self;
     [self loadShaders];
-    
-    glUseProgram(_program);
-    
-    glUniform1i(uniforms[UNIFORM_Y], 0);
-    glUniform1i(uniforms[UNIFORM_UV], 1);
-    
+    if (_isYUV){
+        glUseProgram(_programYUV);
+        
+        glUniform1i(uniforms[UNIFORM_Y], 0);
+        glUniform1i(uniforms[UNIFORM_UV], 1);
+    }else{
+        
+        glUseProgram(_programBGRA);
+        
+        glUniform1i(uniformsBGRA[0], 0);
+    }
     _screenHeight = self.frame.size.height;
     _screenWidth = self.frame.size.width;
     [self setupBuffers];
@@ -120,9 +128,13 @@ enum
     glDeleteBuffers(1, &_texcoordVBO);
     glDeleteBuffers(1, &_indexVBO);
     
-    if (_program) {
-        glDeleteProgram(_program);
-        _program = 0;
+    if (_programYUV) {
+        glDeleteProgram(_programYUV);
+        _programYUV = 0;
+    }
+    if (_programBGRA) {
+        glDeleteProgram(_programBGRA);
+        _programBGRA = 0;
     }
 }
 
@@ -202,43 +214,35 @@ enum
 }
 
 #pragma mark - OpenGL ES 2 shader compilation
-
-- (BOOL)loadShaders
-{
+- (GLuint) loadProgramWithVertexPath:(NSString*)vertShaderPathname fragmentPath:(NSString*)fragShaderPathname{
+    
     GLuint vertShader, fragShader;
-    NSString *vertShaderPathname, *fragShaderPathname;
-    
-    // Create shader program.
-    _program = glCreateProgram();
-    
-    // Create and compile vertex shader.
-    vertShaderPathname = [[NSBundle mainBundle] pathForResource:@"Shader" ofType:@"vsh"];
+    GLuint program = glCreateProgram();
     if (![self compileShader:&vertShader type:GL_VERTEX_SHADER file:vertShaderPathname]) {
         NSLog(@"Failed to compile vertex shader");
-        return NO;
+        glDeleteProgram(program);
+        return 0;
     }
-    
-    // Create and compile fragment shader.
-    fragShaderPathname = [[NSBundle mainBundle] pathForResource:@"ShaderYUV" ofType:@"fsh"];
     if (![self compileShader:&fragShader type:GL_FRAGMENT_SHADER file:fragShaderPathname]) {
         NSLog(@"Failed to compile fragment shader");
-        return NO;
+        glDeleteProgram(program);
+        return 0;
     }
     
     // Attach vertex shader to program.
-    glAttachShader(_program, vertShader);
+    glAttachShader(program, vertShader);
     
     // Attach fragment shader to program.
-    glAttachShader(_program, fragShader);
+    glAttachShader(program, fragShader);
     
     // Bind attribute locations.
     // This needs to be done prior to linking.
-    glBindAttribLocation(_program, ATTRIB_VERTEX, "position");
-    glBindAttribLocation(_program, ATTRIB_TEXCOORD, "texCoord");
+    glBindAttribLocation(program, ATTRIB_VERTEX, "position");
+    glBindAttribLocation(program, ATTRIB_TEXCOORD, "texCoord");
     
     // Link program.
-    if (![self linkProgram:_program]) {
-        NSLog(@"Failed to link program: %d", _program);
+    if (![self linkProgram:program]) {
+        NSLog(@"Failed to link program: %d", program);
         
         if (vertShader) {
             glDeleteShader(vertShader);
@@ -248,27 +252,40 @@ enum
             glDeleteShader(fragShader);
             fragShader = 0;
         }
-        if (_program) {
-            glDeleteProgram(_program);
-            _program = 0;
+        if (program) {
+            glDeleteProgram(program);
+            program = 0;
         }
         
-        return NO;
     }
-    
-    // Get uniform locations.
-    uniforms[UNIFORM_Y] = glGetUniformLocation(_program, "SamplerY");
-    uniforms[UNIFORM_UV] = glGetUniformLocation(_program, "SamplerUV");
-    
     // Release vertex and fragment shaders.
     if (vertShader) {
-        glDetachShader(_program, vertShader);
+        glDetachShader(program, vertShader);
         glDeleteShader(vertShader);
     }
     if (fragShader) {
-        glDetachShader(_program, fragShader);
+        glDetachShader(program, fragShader);
         glDeleteShader(fragShader);
     }
+    return program;
+}
+
+- (BOOL)loadShaders
+{
+    NSString *vertShaderPathname, *fragYUVShaderPathname, *fragBGRAShaderPathname;
+    
+    
+    vertShaderPathname = [[NSBundle mainBundle] pathForResource:@"Shader" ofType:@"vsh"];
+    fragYUVShaderPathname = [[NSBundle mainBundle] pathForResource:@"ShaderYUV" ofType:@"fsh"];
+    fragBGRAShaderPathname = [[NSBundle mainBundle] pathForResource:@"ShaderBGRA" ofType:@"fsh"];
+    // Program for YUV type buffer
+    _programYUV = [self loadProgramWithVertexPath:vertShaderPathname fragmentPath:fragYUVShaderPathname];
+    // Program for BGRA type buffer
+    _programBGRA = [self loadProgramWithVertexPath:vertShaderPathname fragmentPath:fragBGRAShaderPathname];
+    // Get uniform locations.
+    uniforms[UNIFORM_Y] = glGetUniformLocation(_programYUV, "SamplerY");
+    uniforms[UNIFORM_UV] = glGetUniformLocation(_programYUV, "SamplerUV");
+    uniformsBGRA[0] = glGetUniformLocation(_programBGRA, "Sampler");
     
     return YES;
 }
@@ -374,10 +391,27 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
        fromConnection:(AVCaptureConnection *)connection
 {
     CVReturn err;
+    CMFormatDescriptionRef formatDescription = CMSampleBufferGetFormatDescription(sampleBuffer);
+    const FourCharCode subType = CMFormatDescriptionGetMediaSubType(formatDescription);
     CVImageBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
     size_t width = CVPixelBufferGetWidth(pixelBuffer);
     size_t height = CVPixelBufferGetHeight(pixelBuffer);
-    
+    if (subType == '420f'){
+        _isYUV = YES;
+    }else{
+        _isYUV = NO;
+    }
+    if (_isYUV){
+        glUseProgram(_programYUV);
+        
+        glUniform1i(uniforms[UNIFORM_Y], 0);
+        glUniform1i(uniforms[UNIFORM_UV], 1);
+    }else{
+        
+        glUseProgram(_programBGRA);
+        
+        glUniform1i(uniformsBGRA[0], 0);
+    }
     if (!_videoTextureCache)
     {
         NSLog(@"No video texture cache");
@@ -410,51 +444,77 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     // CVOpenGLESTextureCacheCreateTextureFromImage will create GLES texture
     // optimally from CVImageBufferRef.
     
-    // Y-plane
-    glActiveTexture(GL_TEXTURE0);
-    err = CVOpenGLESTextureCacheCreateTextureFromImage(kCFAllocatorDefault,
-                                                       _videoTextureCache,
-                                                       pixelBuffer,
-                                                       NULL,
-                                                       GL_TEXTURE_2D,
-                                                       GL_LUMINANCE,
-                                                       (GLsizei)_textureWidth,
-                                                       (GLsizei)_textureHeight,
-                                                       GL_LUMINANCE,
-                                                       GL_UNSIGNED_BYTE,
-                                                       0,
-                                                       &_lumaTexture);
-    if (err)
-    {
-        NSLog(@"Error at CVOpenGLESTextureCacheCreateTextureFromImage %d", err);
+    if (_isYUV){
+        // Y-plane
+        glActiveTexture(GL_TEXTURE0);
+        err = CVOpenGLESTextureCacheCreateTextureFromImage(kCFAllocatorDefault,
+                                                           _videoTextureCache,
+                                                           pixelBuffer,
+                                                           NULL,
+                                                           GL_TEXTURE_2D,
+                                                           GL_LUMINANCE,
+                                                           (GLsizei)_textureWidth,
+                                                           (GLsizei)_textureHeight,
+                                                           GL_LUMINANCE,
+                                                           GL_UNSIGNED_BYTE,
+                                                           0,
+                                                           &_lumaTexture);
+        if (err)
+        {
+            NSLog(@"Error at CVOpenGLESTextureCacheCreateTextureFromImage %d", err);
+        }
+        
+        glBindTexture(CVOpenGLESTextureGetTarget(_lumaTexture), CVOpenGLESTextureGetName(_lumaTexture));
+        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+        
+        // UV-plane
+        glActiveTexture(GL_TEXTURE1);
+        err = CVOpenGLESTextureCacheCreateTextureFromImage(kCFAllocatorDefault,
+                                                           _videoTextureCache,
+                                                           pixelBuffer,
+                                                           NULL,
+                                                           GL_TEXTURE_2D,
+                                                           GL_LUMINANCE_ALPHA,
+                                                           (GLsizei)_textureWidth/2,
+                                                           (GLsizei)_textureHeight/2,
+                                                           GL_LUMINANCE_ALPHA,
+                                                           GL_UNSIGNED_BYTE,
+                                                           1,
+                                                           &_chromaTexture);
+        if (err)
+        {
+            NSLog(@"Error at CVOpenGLESTextureCacheCreateTextureFromImage %d", err);
+        }
+        
+        glBindTexture(CVOpenGLESTextureGetTarget(_chromaTexture), CVOpenGLESTextureGetName(_chromaTexture));
+        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    }else{
+        // BGRA binding
+        glActiveTexture(GL_TEXTURE0);
+        err = CVOpenGLESTextureCacheCreateTextureFromImage(kCFAllocatorDefault,
+                                                           _videoTextureCache,
+                                                           pixelBuffer,
+                                                           NULL,
+                                                           GL_TEXTURE_2D,
+                                                           GL_RGBA,
+                                                           (GLsizei)_textureWidth,
+                                                           (GLsizei)_textureHeight,
+                                                           GL_BGRA,
+                                                           GL_UNSIGNED_BYTE,
+                                                           0,
+                                                           &_lumaTexture);
+        if (err)
+        {
+            NSLog(@"Error at CVOpenGLESTextureCacheCreateTextureFromImage %d", err);
+        }
+        
+        glBindTexture(CVOpenGLESTextureGetTarget(_lumaTexture), CVOpenGLESTextureGetName(_lumaTexture));
+        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+        
     }
-    
-    glBindTexture(CVOpenGLESTextureGetTarget(_lumaTexture), CVOpenGLESTextureGetName(_lumaTexture));
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    
-    // UV-plane
-    glActiveTexture(GL_TEXTURE1);
-    err = CVOpenGLESTextureCacheCreateTextureFromImage(kCFAllocatorDefault,
-                                                       _videoTextureCache,
-                                                       pixelBuffer,
-                                                       NULL,
-                                                       GL_TEXTURE_2D,
-                                                       GL_LUMINANCE_ALPHA,
-                                                       (GLsizei)_textureWidth/2,
-                                                       (GLsizei)_textureHeight/2,
-                                                       GL_LUMINANCE_ALPHA,
-                                                       GL_UNSIGNED_BYTE,
-                                                       1,
-                                                       &_chromaTexture);
-    if (err)
-    {
-        NSLog(@"Error at CVOpenGLESTextureCacheCreateTextureFromImage %d", err);
-    }
-    
-    glBindTexture(CVOpenGLESTextureGetTarget(_chromaTexture), CVOpenGLESTextureGetName(_chromaTexture));
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 }
 
 @end
