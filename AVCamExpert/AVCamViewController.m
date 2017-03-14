@@ -62,8 +62,7 @@ static void * ExposureTargetOffsetContext = &ExposureTargetOffsetContext;
 @end
 
 @implementation AVCamViewController
-- (void)awakeFromNib {
-}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

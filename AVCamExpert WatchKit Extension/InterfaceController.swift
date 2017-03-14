@@ -11,18 +11,24 @@ import WatchConnectivity
 import Foundation
 
 class InterfaceController: WKInterfaceController, WCSessionDelegate {
+    /** Called when the session has completed activation. If session state is WCSessionActivationStateNotActivated there will be an error with more details. */
+    @available(watchOS 2.2, *)
+    public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+
     @IBOutlet var imageView: WKInterfaceImage!
     
     @IBOutlet var mainGroup: WKInterfaceGroup!
     @IBOutlet var startLabel: WKInterfaceLabel!
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
+    override func awake(withContext context: Any?) {
+        super.awake(withContext: context)
         
         // Configure interface objects here.
         if (WCSession.isSupported()){
-            let session = WCSession.defaultSession()
+            let session = WCSession.default()
             session.delegate = self
-            session.activateSession()
+            session.activate()
         }
     }
     
@@ -42,43 +48,44 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     }
     
     // MARK: -  WatchConnectivity delegates
-    func session(session: WCSession, didReceiveMessageData messageData: NSData) {
+    func session(_ session: WCSession, didReceiveMessageData messageData: Data) {
         mainGroup.setHidden(false)
         startLabel.setHidden(true)
         
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+        DispatchQueue.main.async { () -> Void in
             self.imageView.setImageData(messageData)
         }
         
     }
-    func session(session: WCSession, didReceiveMessageData messageData: NSData, replyHandler: (NSData) -> Void) {
+    func session(_ session: WCSession, didReceiveMessageData messageData: Data, replyHandler: @escaping (Data) -> Void) {
         mainGroup.setHidden(false)
         startLabel.setHidden(true)
         
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+        DispatchQueue.main.async { () -> Void in
             self.imageView.setImageData(messageData)
         }
     }
     // MARK: -  actions
     @IBAction func grabAction() {
-        if (WCSession.defaultSession().reachable){
+        if (WCSession.default().isReachable){
             let messageDict = ["action":"grab"]
-            WCSession.defaultSession().sendMessage(messageDict, replyHandler: { (reply : [String : AnyObject]) -> Void in
+            WCSession.default().sendMessage(messageDict, replyHandler: { (_: [String : Any]) in
+                // do something            
+            }, errorHandler: { (Error) in
                 // do something
-                }, errorHandler: { (NSError) -> Void in
-                    // do something
             })
+
             
         }
     }
     @IBAction func switchAction() {
-        if (WCSession.defaultSession().reachable){
+        if (WCSession.default().isReachable){
             let messageDict = ["action":"switch"]
             
-            WCSession.defaultSession().sendMessage(messageDict, replyHandler: { (reply : [String : AnyObject]) -> Void in
+            WCSession.default().sendMessage(messageDict, replyHandler: { (_: [String : Any]) in
                 // do something
-                }, errorHandler: { (NSError) -> Void in
-                    // do something
+            }, errorHandler: { (Error) in
+                // do something
             })
             
         }
